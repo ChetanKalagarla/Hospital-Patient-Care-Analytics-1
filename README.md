@@ -1,51 +1,93 @@
 <div align="center">
 
-# 🏥 Hospital Patient Care Analytics
+# 🏥 Hospital Patient Care Analytics Pipeline
 
-### End-to-End Data Engineering Case Study
+### 📊 End-to-End Data Engineering Case Study
 
-<p>
-  <strong>Chetan Kalagarla</strong><br>
-  Student ID: <strong>2300033450</strong>
-</p>
+**Chetan Kalagarla**  
+**Student ID: 2300033450**
 
-<p>
-  <img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
-  <img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
-  <img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white">
-  <img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white">
-  <img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white">
-</p>
+<br>
+
+<img src="https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white">
+<img src="https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white">
+<img src="https://img.shields.io/badge/NumPy-013243?style=for-the-badge&logo=numpy&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=sqlite&logoColor=white">
+<img src="https://img.shields.io/badge/Jupyter-F37626?style=for-the-badge&logo=jupyter&logoColor=white">
+<img src="https://img.shields.io/badge/Matplotlib-11557C?style=for-the-badge&logo=matplotlib&logoColor=white">
 
 </div>
 
 ---
 
-## 📌 About the Project
+## 📌 Project Overview
 
-A multi-specialty hospital collects data from different systems such as **patient registration, appointments, laboratory reports, wearable devices, and doctor consultations**.
+A multi-specialty hospital collects data from multiple systems such as:
 
-This project demonstrates an **end-to-end data engineering pipeline** that integrates these sources, processes the data, stores it, and generates useful analytics for hospital operations.
+- 👤 Patient Registration
+- 📅 Appointment Scheduling
+- 🧪 Laboratory Reports
+- ⌚ Wearable Health Devices
+- 🩺 Doctor Consultation
 
-> **Note:** Synthetic data is used for demonstration. The risk score is a simple analytical example and is not a clinical prediction model.
+Managing these sources separately makes it difficult to understand patient flow, waiting times, health indicators and operational performance.
+
+This project demonstrates an **end-to-end data engineering pipeline** that collects, validates, integrates, transforms, stores and analyzes hospital data.
 
 ---
 
-## 🔄 Data Pipeline
+## 🎯 Project Objectives
 
-<div align="center">
+The main objectives of this project are:
+
+| Objective | Description |
+|:---|:---|
+| 🔗 Data Integration | Combine data from multiple hospital systems |
+| 🧹 Data Quality | Identify missing values and duplicate records |
+| ⚙️ Data Transformation | Convert raw data into useful analytical features |
+| 🗄️ Data Storage | Store processed data using SQLite |
+| ⏱️ Operational Analytics | Analyze patient waiting times |
+| 🚨 Risk Analytics | Generate simple demonstration risk levels |
+| 📊 Visualization | Present important analytical results |
+| 🔍 Monitoring | Track basic pipeline-quality metrics |
+
+---
+
+## 🏗️ System Architecture
 
 ```text
-🏥 Healthcare Sources
-        ↓
-📥 Data Ingestion
-        ↓
-🧹 Data Quality Checks
-        ↓
-⚙️ Data Transformation
-        ↓
-🔗 Data Integration
-        ↓
-🗄️ SQLite Storage
-        ↓
-📊 Analytics & Insights
+                 🏥 HOSPITAL DATA SOURCES
+                         │
+        ┌────────────────┼────────────────┐
+        │                │                │
+   Registration     Appointments      Laboratory
+        │                │                │
+        └────────────────┼────────────────┘
+                         │
+                 ⌚ Wearables
+                         │
+                 🩺 Consultation
+                         │
+                         ▼
+                 📥 DATA INGESTION
+                         │
+                         ▼
+              🧹 DATA QUALITY CHECK
+                         │
+                         ▼
+              ⚙️ DATA TRANSFORMATION
+                         │
+                         ▼
+                🔗 DATA INTEGRATION
+                         │
+                         ▼
+                🗄️ SQLITE STORAGE
+                         │
+              ┌──────────┴──────────┐
+              ▼                     ▼
+       ⏱️ OPERATIONAL          🚨 RISK
+          ANALYTICS             ANALYTICS
+              │                     │
+              └──────────┬──────────┘
+                         ▼
+                  📊 INSIGHTS
